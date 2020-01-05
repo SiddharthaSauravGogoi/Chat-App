@@ -25,19 +25,26 @@ function Register(){
     }
 
     return(
-        <div>
-            <form onSubmit={handleRegistration}>
-                <label htmlFor="username">Username</label>
-                <input type="text" name="username" required/>
+        <div className="register-container">
+            <form onSubmit={handleRegistration} className="register-form">
+                
+                <div className="username-wrapper">
+                    <label htmlFor="username">Username</label>
+                    <input type="text" name="username" required/>
+                </div>
 
-                <label htmlFor="email">Email</label>
-                <input type="email" name="email" required/>
+                <div className="email-wrapper">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email" required/>
+                </div>
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" required/>
+                <div className="password-wrapper">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" required/>
+                </div>
 
-                <button type="submit">
-                    Submit
+                <button type="submit" className="btn-submit">
+                    REGISTER
                 </button>
             </form>
         </div>

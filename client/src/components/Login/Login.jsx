@@ -14,22 +14,27 @@ function Login(){
         .then( e => {
             if(e){
                 localStorage.setItem('userToken', e.userToken)
-                window.location.href = '/'
+                window.location.href = '/chat'
             }
         })
         
     }
 
     return(
-        <div>
-            <form onSubmit={login}>
-                <label htmlFor="email">Email</label>
-                <input type="text" name="email" required/>
+        <div className="login-container">
+            <form onSubmit={login} className="login-form">
 
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" required/>
+                <div className="email-wrapper">
+                    <label htmlFor="email">Email</label>
+                    <input type="text" name="email" required/>
+                </div>
+                
+                <div className="password-wrapper">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" name="password" required/>
+                </div>
 
-                <button type="submit">
+                <button type="submit" className="btn-submit">
                     LOGIN
                 </button>
             </form>
