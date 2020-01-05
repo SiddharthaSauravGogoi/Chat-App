@@ -33,3 +33,61 @@ body {
   height: calc(100vh - 64px);
   background: gray;
 }
+
+/** login styles go here **/
+
+.login-container,
+.register-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form,
+.register-form {
+  background: rgb(230, 228, 228);
+  border-radius: 5px;
+  height: 250px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.username-wrapper,
+.email-wrapper,
+.password-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 3% 0%;
+}
+
+.username-wrapper input,
+.email-wrapper input,
+.password-wrapper input {
+  width: 60%;
+  border: 1px solid rgb(124, 124, 124);
+  border-radius: 5px;
+  padding: 6px;
+}
+
+.username-wrapper label,
+.email-wrapper label,
+.password-wrapper label {
+  width: 25%;
+}
+
+
+.btn-submit{
+  border: 1px solid rgb(124, 124, 124);
+  background: #197DF6;
+  color: #fefefe;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+}

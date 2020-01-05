@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Login from './components/Login/Login'
 import Register from './components/Register/Register'
+import ChatRoom from './components/ChatRoom/ChatRoom'
 
 const routes = (
 		<Router>
@@ -13,6 +14,7 @@ const routes = (
 				<Route exact path= "/" component={App} />
 				<Route exact path= "/login" component={Login} />
 				<Route exact path= "/register" component={Register} />
+				<Route exact path= "/chat" component={ChatRoom} />
 			</div>
 		</Router>
 );
