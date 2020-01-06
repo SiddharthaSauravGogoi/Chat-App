@@ -4,9 +4,11 @@ import Navbar from './components/Navbar/Navbar.jsx'
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Navbar />
-      Chat App
+      <div className="landing-page-body">
+        Chat app
+      </div>
     </div>
   );
 }
