@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 import jwt from 'jsonwebtoken'
+import emoji from 'react-emoji';
 
+let socket;
 function ChatRoom() {
 
-    const [username, setUsername] = useState('')
-
-    let socket;
+    const [username, setUsername] = useState('');
+    const [message, updateMessage] = useState('');
+    const [messageLog, updateMessageLog] = useState([]);
 
     useEffect(() => {
 
@@ -23,9 +25,53 @@ function ChatRoom() {
         }
 
     }, [])
+
+
+    useEffect(() => {
+
+        socket.on('message', (message) => {
+            updateMessageLog([...messageLog, message])
+        })
+    }, [messageLog])
+
+
+    const handleMessageSubmit = (e) => {
+        e.preventDefault();
+
+        if(e){
+            socket.emit('chat', message)
+            updateMessage('')
+        }
+    }
+
+
     return(
-        <div>
-            Chat page goes here
+        <div className="chatbox-container">
+            <div className="chatbox">
+                <div className="chatbox-display">
+
+                    {messageLog.map((item, key) => (
+
+                        <div className="chat-inline" key={key}> 
+                            <p className="chat-text">{emoji.emojify(item.text)}</p>
+                            <p className="chat-username">  {item.user}</p>
+                        </div>
+
+                    ))}
+                </div>
+                <div className="chatbox-submit-wrapper">
+                    <input 
+                        type="text" 
+                        value={message}
+                        onChange={(e) => updateMessage(e.target.value)}
+                        onKeyPress={e => e.key === 'Enter' ? handleMessageSubmit(e) : null}
+                    />
+                    <button className="btn-submit" onClick={handleMessageSubmit}>
+                        Send
+                    </button>
+                </div>
+
+            </div>
         </div>
     )
 }
