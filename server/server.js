@@ -8,6 +8,7 @@ const router = require('./routes/index');
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const port = 3600
+const { addUser, getUser} = require('./utils/users')
 require('dotenv').config()
 
 app.use(cors());
@@ -30,13 +31,20 @@ mongoose
 mongoose.set('useCreateIndex', true);
 mongoose.Promise = global.Promise;
 
-app.get('/', (req, res) => res.send('Hello World!'))
 
 io.on('connection', (socket) => {
 
     socket.on('login', ({username}) => {
-        /** do stuff here */
+        addUser({ id: socket.id, username})
+        socket.join('default')
     })
+
+    socket.on('chat', (data, err) => {
+        const user = getUser(socket.id);
+
+        io.to('default').emit('message', { user: user.username, text: data })
+    })
+
 
     
 })

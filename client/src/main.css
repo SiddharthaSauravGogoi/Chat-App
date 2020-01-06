@@ -82,6 +82,7 @@ body {
   width: 25%;
 }
 
+/** button styles **/
 
 .btn-submit{
   border: 1px solid rgb(124, 124, 124);
@@ -90,4 +91,68 @@ body {
   width: 100px;
   height: 30px;
   border-radius: 5px;
+}
+
+/** chatbox styles **/
+
+.chatbox-container{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chatbox{
+  height: 500px;
+  width: 300px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.chatbox-display{
+    height: 90%;
+    overflow-y: scroll;
+
+}
+.chatbox-submit-wrapper{
+  display: flex;
+  width: 100%;
+  height: 10%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.chatbox-submit-wrapper input{
+  width: 80%;
+}
+.chatbox-submit-wrapper button{
+  width: 20%;
+  height: 100%;
+  border-radius: 0;
+}
+
+/** chat texts style **/
+.display-text-start{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.display-text-end{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chat-text{
+  padding: 6px;
+  border-radius: 10px; 
+  margin-right: 2%;
+  background: rgb(236, 236, 236);
+}
+
+.chat-inline{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 }
