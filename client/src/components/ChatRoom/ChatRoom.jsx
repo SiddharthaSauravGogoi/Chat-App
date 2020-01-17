@@ -15,7 +15,7 @@ function ChatRoom() {
         let token = localStorage.getItem('userToken')
         let userDetails = jwt.decode(token)
         let { username } = userDetails
-        setUsername(username)
+        setUsername(username.trim().toLowerCase())
         socket = io('http://localhost:3600')
 
         socket.emit('login', {username})
@@ -44,7 +44,6 @@ function ChatRoom() {
         }
     }
 
-
     return(
         <div className="chatbox-container">
             <div className="chatbox">
@@ -52,7 +51,7 @@ function ChatRoom() {
 
                     {messageLog.map((item, key) => (
 
-                        <div className="chat-inline" key={key}> 
+                        <div className={(username === item.user ) ? "chat-inline ": "chat-inline-f-end"} key={key} > 
                             <p className="chat-text">{emoji.emojify(item.text)}</p>
                             <p className="chat-username">  {item.user}</p>
                         </div>

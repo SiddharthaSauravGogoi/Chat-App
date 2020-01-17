@@ -170,3 +170,9 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
+.block{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
